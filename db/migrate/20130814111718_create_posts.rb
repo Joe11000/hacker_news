@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title, :presence => true
       t.string :content
+      t.string :hyperlink
       t.belongs_to :user
 
       t.timestamps

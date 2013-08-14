@@ -2,7 +2,7 @@
   <ol>
     <% @posts.each do |post| %>
     <li> <a href="<%= post.hyperlink %>"><%= post.title %></a> 
-      <span><a href="/post/<%= post.id %>">
+      <span><a href="/posts/<%= post.id %>">
         <%= post.comments.count %> comments</a></span></li>
     <% end %>
   </ol>

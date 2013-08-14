@@ -4,7 +4,8 @@ require 'faker'
 def create_posts(num_of_posts = 50)
   num_of_posts.times do 
     Post.create({title:Faker::Company.catch_phrase,
-                 content:Faker::Lorem.sentence})
+                 content:Faker::Lorem.sentence,
+                 hyperlink: "http://www.twitter.com/"})
   end
 end
 
@@ -38,7 +39,6 @@ end
 Post.all.each_with_index do |post, index|
   post.comments << Comment.find(index+1)
 end
-
 
 
 
