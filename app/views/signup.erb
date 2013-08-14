@@ -1,0 +1,35 @@
+<div class="container">
+
+  <% if @errors %>
+  <% @errors.each do |error| %>
+  <p class="errors"><%= error %></p>
+  <% end %>
+  <% end %>
+
+
+  <form id="login" action="/users/new" method="POST">
+    <div class="controls">
+      <label for="name">Username:</label>
+      <input id="name" name="user[name]" type="text" value="<%= @user.try(:name) %>">
+    </div>
+
+    <div class="controls">
+      <label for="email">Email</label>
+      <input id="email" name="user[email]" type="text" value="<%= @user.try(:email) %>">
+    </div>
+
+    <div class="controls">
+      <label for="password">Password</label>
+      <input id="password" name="user[password]" type="password">
+    </div>
+
+    <div class="controls">
+      <label for="password_confirmation">Password Confirmation</label>
+      <input id="password_confirmation" name="user[password_confirmation]" type="password">
+    </div>
+
+    <div class="controls">
+      <input type="submit"></input>
+    </div>
+  </form>
+</div>

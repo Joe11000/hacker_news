@@ -1,0 +1,22 @@
+<div class="container">
+  <% if @errors %>
+    <% @errors.each do |error| %>
+       <p class="errors"><%= error %></p>
+    <% end %>
+  <% end %>
+
+  <form id="login" action="/login" method="POST">
+    <div class="controls">
+      <label for="email">Email:</label>
+      <input id="email" name="user[email]" type="text" placeholder="eg: iamawesome@gmail.com" value="<%= @user.try(:email) %>">
+    </div>
+
+    <div class="controls">
+      <label for="password">Password:</label>
+      <input id="password" name="user[password]" type="password" value="<%= @user.try(:password) %>">
+    </div>
+    <div class="controls">
+      <input type="submit">
+    </div>
+  </form>
+</div>
