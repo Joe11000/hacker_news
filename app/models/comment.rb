@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
-  has_many :posts
+  belongs_to :post 
 
+  validates_presence_of :body
 end
