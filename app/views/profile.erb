@@ -1,0 +1,23 @@
+<div class="container">
+  <h1> <%= @user.name %> </h1>
+  <ul>
+    <li><%= @user.email %></li>
+  </ul>
+  <h3>Posts Created</h3>
+  <ul>
+    <% @user.posts.each do |post| %>
+    <li> <a href="<%= post.hyperlink %>"><%= post.title %></a> 
+      <span><a href="/posts/<%= post.id %>">
+        <%= post.comments.count %> comments</a></span></li>
+    <% end %>
+  </ul>
+    <h3>Comments Created</h3>
+  <ul>
+    <% @user.comments.each do |comment| %>
+    <li> 
+      <%= comment.body %>
+      <span><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
