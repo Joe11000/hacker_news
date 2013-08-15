@@ -7,11 +7,15 @@
     <p>Comments:</p>
     <ul>
     <% @post.comments.each do |comment| %>
-
-      <form method="upvote" action="/upvote/post/<%= comment.id %>"> 
+      
+    <% unless @user != nil && @user.include?(comment) %>
+      <form class="upvote" action="/upvote/post/<%= comment.id %>"
+        method="post" data-post-id="<%= comment.id %>"> 
         <input type="submit" value="&#x25B2;">
       </form>
+      <% end %>
       <li><%= comment.body %></a>
+      <span data-post-id="<%= comment.id %>"><%= comment.comment_votes.count%> votes!</span>
          <a href="/profile/<%=comment.user.id%>"><%=comment.user.name %>
          </li>
     <% end %>

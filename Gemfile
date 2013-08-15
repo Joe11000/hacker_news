@@ -15,7 +15,7 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
-
+gem 'debugger'
 gem 'shotgun'
 
 group :test do

@@ -1,12 +1,11 @@
-<div class="container">
+
   <ol>
     <% @posts.each do |post| %>
     
-    <% unless User.find(session[:user_id]).voted_on_posts.include?(post) %>
+    <% unless @user != nil && @user.include?(post) %>
       <form class= "upvote" method="upvote" action="/upvote/<%= post.id %>"data-post-id="<%= post.id %>"> 
         <input type="submit" value="&#x25B2;">
       </form>
-      <% end %>
     <% end %>
 
     <li> <a href="<%= post.hyperlink %>"><%= post.title %></a> 
@@ -15,6 +14,7 @@
         <%= post.comments.count %> comments
       </a>
     </li>
-    <% end %>
+   
+  <% end %>
   </ol>
-</div>
+
