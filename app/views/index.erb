@@ -1,9 +1,20 @@
 <div class="container">
   <ol>
     <% @posts.each do |post| %>
+    
+    <% unless User.find(session[:user_id]).voted_on_posts.include?(post) %>
+      <form class= "upvote" method="upvote" action="/upvote/<%= post.id %>"data-post-id="<%= post.id %>"> 
+        <input type="submit" value="&#x25B2;">
+      </form>
+      <% end %>
+    <% end %>
+
     <li> <a href="<%= post.hyperlink %>"><%= post.title %></a> 
-      <span><a href="/posts/<%= post.id %>">
-        <%= post.comments.count %> comments</a></span></li>
+      <span data-post-id="<%= post.id %>"><%= post.post_votes.count%> votes!</span>
+      <a href="/posts/<%= post.id %>">
+        <%= post.comments.count %> comments
+      </a>
+    </li>
     <% end %>
   </ol>
 </div>

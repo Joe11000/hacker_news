@@ -7,6 +7,10 @@
     <p>Comments:</p>
     <ul>
     <% @post.comments.each do |comment| %>
+
+      <form method="upvote" action="/upvote/post/<%= comment.id %>"> 
+        <input type="submit" value="&#x25B2;">
+      </form>
       <li><%= comment.body %></a>
          <a href="/profile/<%=comment.user.id%>"><%=comment.user.name %>
          </li>
