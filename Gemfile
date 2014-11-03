@@ -1,9 +1,10 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 # PostgreSQL driver
 gem 'pg'
 
+ruby "1.9.3"
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -15,7 +16,7 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
-gem 'debugger'
+# gem 'debugger'
 gem 'shotgun'
 
 group :test do
